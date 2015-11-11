@@ -16,32 +16,30 @@ submitted the copy will receive a zero on this assignment.
 
 #define MAX_INPUT (100)
 
-int
-main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-  printf
-    ("Assignment 6: Block Access Algorithm\nBy: Miranda Workman and Cody Kellogg\n\n");
+	printf("Assignment 6: Block Access Algorithm\nBy: Miranda Workman and Cody Kellogg\n\n");
 
-  FILE *fp = stdin;
-  if (argc == 2)
-    {
-      fp = fopen (argv[1], "r");
-    }
-  if (!fp)
-    {
-      perror ("Problem opening file.");
-      return -1;
-    }
-  int input[MAX_INPUT];
-  int i;
+	FILE *fp = stdin;
+	if (argc == 2)
+	{
+		fp = fopen(argv[1], "r");
+	}
+	if (!fp)
+	{
+		perror("Problem opening file.");
+		return -1;
+	}
+	int input[MAX_INPUT];
+	int i;
 
-  while (fscanf (fp, "%d", &input[i]) == 1)
-    ++i;
+	while (fscanf(fp,"%d", &input[i]) == 1)
+		++i;
 
-  fcfs (input);
-  sstf (input);
-  look (input);
-  clook (input);
+	fcfs(input);
+	sstf(input);
+	look(input);
+	clook(input);
 
-  return 0;
+	return 0;
 }
