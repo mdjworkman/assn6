@@ -15,6 +15,7 @@ submitted the copy will receive a zero on this assignment.
 #include<stdlib.h>
 
 #define MAX_INPUT (100)
+int count;
 
 int
 main (int argc, char *argv[])
@@ -33,15 +34,17 @@ main (int argc, char *argv[])
       return -1;
     }
   int input[MAX_INPUT];
-  int i;
+//  int i;
 
-  while (fscanf (fp, "%d", &input[i]) == 1)
-    ++i;
+//  while (fscanf (fp, "%d", &input[i]) == 1)
+//    ++i;
 
-  fcfs (input);
-  sstf (input);
-  look (input);
-  clook (input);
+while (fscanf (fp, "%d", &input[count]) == 1) count++;
+
+  fcfs (count,input);
+//  sstf (input);
+//  look (input);
+//  clook (input);
 
   return 0;
 }
