@@ -49,18 +49,18 @@ int z;
 //  int head = input[0];
   int seek = 0;
   int sorted[count];
-//for (z = 0; z < count-1; z++){
+for (z = 0; z < count; z++){
 //printf("%d",z);
-//sorted[z]= input[z];
-//}
+sorted[z]= input[z];
+}
 //printf("hello");
 //sort the array
 
  int i, j, a, n;
 
-    for (i = 0; i < n; ++i)
+    for (i = 0; i < count; ++i)
     {
-        for (j = i + 1; j < n; ++j)
+        for (j = i + 1; j < count; ++j)
         {
             if (sorted[i] > sorted[j])
             {
@@ -71,7 +71,7 @@ int z;
         }
     }
     printf("The numbers arranged in ascending order are given below \n");
-    for (i = 0; i < n; ++i)
+    for (i = 0; i < count; ++i)
         printf("%d\n", sorted[i]);
 
 
