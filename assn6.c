@@ -41,9 +41,9 @@ main (int argc, char *argv[])
 
 while (fscanf (fp, "%d", &input[count]) == 1) count++;
 
-  fcfs (count,input);
+  fcfs (count, input);
 //  sstf (input);
-//  look (input);
+  look (count, input);
 //  clook (input);
 
   return 0;
