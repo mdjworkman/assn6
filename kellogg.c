@@ -118,6 +118,6 @@ look (int count, int *input)
       ++completed;
     }
 
-  printf ("C-LOOK Total Seek: %d\n", seek1);
+  printf ("LOOK Total Seek: %d\n", seek1);
 
 }
