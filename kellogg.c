@@ -39,40 +39,85 @@ fcfs (int count, int *input)
   printf ("FCFS Total Seek: %d\n", seek);
 }
 
-look (int count, int *input){
+look (int count, int *input)
+{
 
-int complete = 0;
-printf("%d",count);
-int z;
-  int h = 0;
+  int completed = 0;
+  int z;
+  int h = 0, x = 0;
   int start = 0;
-//  int head = input[0];
-  int seek = 0;
+  int head = input[0];
+  int seek1 = 0;
   int sorted[count];
-for (z = 0; z < count; z++){
-//printf("%d",z);
-sorted[z]= input[z];
-}
-//printf("hello");
-//sort the array
+  int i, y, j, a;
+  int otherway = 0;
 
- int i, j, a, n;
-
-    for (i = 0; i < count; ++i)
+  for (z = 0; z < count; ++z)
     {
-        for (j = i + 1; j < count; ++j)
-        {
-            if (sorted[i] > sorted[j])
-            {
-                a =  sorted[i];
-                sorted[i] = sorted[j];
-                sorted[j] = a;
-            }
-        }
+      sorted[z] = input[z];
     }
-    printf("The numbers arranged in ascending order are given below \n");
-    for (i = 0; i < count; ++i)
-        printf("%d\n", sorted[i]);
 
+//sort the array
+  for (i = 0; i < count; ++i)
+    {
+      for (j = i + 1; j < count; ++j)
+	{
+	  if (sorted[i] > sorted[j])
+	    {
+	      a = sorted[i];
+	      sorted[i] = sorted[j];
+	      sorted[j] = a;
+	    }
+	}
+    }
+
+//  printf ("The numbers arranged in ascending order are given below \n");
+//  for (i = 0; i < count; ++i)
+//  printf ("%d\n", sorted[i]);
+
+
+  while (1)
+    {
+      if (sorted[x] == head)
+	{
+	  y = x;
+	  break;
+	}
+
+      else
+	{
+	  ++x;
+	}
+    }
+
+  while (completed < count-1)
+    {
+
+      if (y == count-1)
+	{
+	otherway = 1;
+//	printf ("current: %d %d: %d\n",sorted[y],sorted[x],( sorted[y] - sorted[x]));
+	seek1 += sorted[y] - sorted[x];
+	y = x;
+	}
+
+      if (otherway == 0)
+	{
+//	printf ("current: %d %d: %d\n",sorted[y+1],sorted[y],( sorted[y+1] - sorted[y]));
+        seek1 += sorted[y+1] - sorted[y];
+	++y;
+	}
+
+      else
+	{
+   	seek1 += sorted[y] - sorted[y - 1];
+// 	printf ("current: %d %d: %d\n",sorted[y], sorted[y-1], sorted[y] - sorted[y - 1]);
+	--y;
+	}
+
+      ++completed;
+    }
+
+  printf ("C-LOOK Total Seek: %d\n", seek1);
 
 }
