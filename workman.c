@@ -11,26 +11,43 @@ that all members of my group and the members of the group that
 submitted the copy will receive a zero on this assignment.
 */
 
+#include<inttypes.h>
+
 void sstf(int count, int *input)
 {
+	const int m = 9999999;
 	int seek = 0;
 	int cur_pos = input[0];
-	int i;
-	int shortest = 9999999;
-	
+	int i, j, index, shortest;
+	int visited[count];
+	visited[0] = 1;
+	for (i = 1; i < count; ++i)
+	{
+		visited[i] = 0;
+	}
+
 	for (i = 0; i < count; ++i)
 	{
-		if (cur_pos < input[i+1])
+		shortest = m;
+		for (j = 0; j < count; ++j)
 		{
-			if  (input[i+1] - cur_pos < shortest)
-				shortest = input[i+1] - input[i];
+			if (visited[j] != 1)
+			{
+				if ( abs(cur_pos - input[j] ) < shortest )
+				{
+					index = j;
+					shortest = abs(cur_pos - input[j]);
+				}
+			}
 		}
-		else{
-			if (cur_pos - input[i+1] < shortest)
-				shortest = input[i+1] - input[i];
+		if (i != count-1)
+		{
+			seek += shortest;
+			cur_pos = input[index];
+			visited[index] = 1;
 		}
 	}
-		
+
 	printf("SSTF Total Seek: %d\n", seek);
 }
 

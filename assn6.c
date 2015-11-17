@@ -42,9 +42,9 @@ main (int argc, char *argv[])
 while (fscanf (fp, "%d", &input[count]) == 1) count++;
 
   fcfs (count, input);
-//  sstf (input);
+  sstf (count, input);
   look (count, input);
-//  clook (input);
+  clook (count, input);
 
   return 0;
 }
