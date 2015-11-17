@@ -20,14 +20,17 @@ void sstf(int count, int *input)
 	int cur_pos = input[0];
 	int i, j, index, shortest;
 	int visited[count];
+	//Mark initial position as 1, meaning visited, and all others as 0, meaning not yet visited
 	visited[0] = 1;
 	for (i = 1; i < count; ++i)
 	{
 		visited[i] = 0;
 	}
 
+
 	for (i = 0; i < count; ++i)
 	{
+		//Reset shortest value to arbitrary large number
 		shortest = m;
 		for (j = 0; j < count; ++j)
 		{
@@ -56,12 +59,12 @@ void clook(int count, int *input)
 	int i, j, temp, head, index, seek;
 	int sorted[count];
 	head = input[0];
-
+	//Copy input array
 	for (i = 0; i < count; ++i)
 	{
 		sorted[i] = input[i];
 	}
-
+	//Sort array
 	for (i = 0; i < count; ++i)
 	{
 		for (j = i + 1; j < count; ++j)
@@ -74,21 +77,25 @@ void clook(int count, int *input)
 			}
 		}
 	}
-
+	//Move to location of next request
 	while(1)
 	{
 		if(sorted[index] == head)
 			break;
 		++index;
 	}
+	//Seek in the positive direction
 	while (index < count - 1)
 	{
 		seek += sorted[index + 1] - sorted[index];
 		++index;
 	}
 
+	//Move back to the lowest block request
 	index = 0;
 	seek += sorted[count - 1] - sorted[0];
+
+	//Seek in the positive direction up to the start (the initial head position)
 	while (sorted[index + 1] != head)
 	{
 		seek += sorted[index + 1] - sorted[index];

@@ -34,10 +34,6 @@ main (int argc, char *argv[])
       return -1;
     }
   int input[MAX_INPUT];
-//  int i;
-
-//  while (fscanf (fp, "%d", &input[i]) == 1)
-//    ++i;
 
 while (fscanf (fp, "%d", &input[count]) == 1) count++;
 
