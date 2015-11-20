@@ -77,6 +77,7 @@ void clook(int count, int *input)
 			}
 		}
 	}
+
 	//Move to location of next request
 	while(1)
 	{
